@@ -1,3 +1,8 @@
+## Release 1.2.1
+
+* 74a83b0 [bugfix] Update rubocop to the latest (#1)
+* 5f6a6b3 [bugfix] introduce jenkins_slave_enable_debug (#20)
+
 ## Release 1.2.0
 
 * f8dc53f fix README.md
