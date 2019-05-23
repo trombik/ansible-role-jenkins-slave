@@ -1,3 +1,4 @@
+---
 jenkins_slave_user: "{{ __jenkins_slave_user }}"
 jenkins_slave_group: "{{ __jenkins_slave_group }}"
 jenkins_slave_home: "{{ __jenkins_slave_home }}"

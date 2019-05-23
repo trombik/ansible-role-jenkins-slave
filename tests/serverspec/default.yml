@@ -1,3 +1,4 @@
+---
 - hosts: localhost
   vars_files:
     - jenkins_slave_master_ssh_private_key.yml
@@ -11,12 +12,12 @@
         - "ansible_distribution == 'CentOS'"
         - "ansible_distribution_version | version_compare('7.4', '<')"
   roles:
-    - reallyenglish.redhat-repo
-    - reallyenglish.apt-repo
-    - reallyenglish.java
-    - reallyenglish.vagrant
-    - reallyenglish.virtualbox
-    - reallyenglish.ansible
+    - trombik.redhat_repo
+    - trombik.apt_repo
+    - trombik.java
+    - trombik.vagrant
+    - trombik.virtualbox
+    - trombik.ansible
     - ansible-role-jenkins-slave
   vars:
     apt_repo_to_add:
@@ -28,7 +29,8 @@
         mirrorlist: "http://mirrors.fedoraproject.org/mirrorlist?repo=epel-{{ ansible_distribution_major_version }}&arch={{ ansible_architecture }}"
         gpgcheck: yes
         enabled: yes
-    jenkins_slave_extra_packages: "{% if ansible_os_family == 'FreeBSD' %}[ 'rubygem-rake', 'phantomjs' ]{% elif ansible_os_family == 'Debian' %}[ 'rake', 'phantomjs' ]{% elif ansible_os_family == 'RedHat' %}[ 'rubygem-rake' ]{% else %}[]{% endif %}"
-    jenkins_slave_extra_npm_packages: "{% if ansible_os_family == 'RedHat' %}[ 'phantomjs' ]{% else %}[ 'jenkins' ]{% endif %}"
+    jenkins_slave_extra_packages: "{% if ansible_os_family == 'FreeBSD' %}[ 'rubygem-rake' ]{% elif ansible_os_family == 'Debian' %}[ 'rake' ]{% elif ansible_os_family == 'RedHat' %}[ 'rubygem-rake' ]{% else %}[]{% endif %}"
+    jenkins_slave_extra_npm_packages: "{% if ansible_os_family == 'RedHat' %}[ '' ]{% else %}[ 'jenkins' ]{% endif %}"
     jenkins_slave_master_ssh_passphrase: passphrase
     jenkins_slave_ansible_vault_key: "QriBECUJGKBq4a1fMTMClAqqqaGuH8DG6jujJllw"
+    jenkins_slave_enable_debug: yes

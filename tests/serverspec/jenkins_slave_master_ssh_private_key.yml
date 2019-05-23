@@ -1,3 +1,4 @@
+---
 jenkins_slave_master_ssh_private_key: |
   -----BEGIN RSA PRIVATE KEY-----
   Proc-Type: 4,ENCRYPTED

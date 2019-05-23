@@ -61,15 +61,16 @@ None
 
 ```yaml
 dependencies:
-  - { role: reallyenglish.java }
-  - { role: reallyenglish.vagrant }
-  - { role: reallyenglish.virtualbox }
-  - { role: reallyenglish.ansible }
+  - { role: trombik.java }
+  - { role: trombik.vagrant }
+  - { role: trombik.virtualbox }
+  - { role: trombik.ansible }
 ```
 
 # Example Playbook
 
 ```yaml
+---
 - hosts: localhost
   vars_files:
     - jenkins_slave_master_ssh_private_key.yml
@@ -83,12 +84,12 @@ dependencies:
         - "ansible_distribution == 'CentOS'"
         - "ansible_distribution_version | version_compare('7.4', '<')"
   roles:
-    - reallyenglish.redhat-repo
-    - reallyenglish.apt-repo
-    - reallyenglish.java
-    - reallyenglish.vagrant
-    - reallyenglish.virtualbox
-    - reallyenglish.ansible
+    - trombik.redhat_repo
+    - trombik.apt_repo
+    - trombik.java
+    - trombik.vagrant
+    - trombik.virtualbox
+    - trombik.ansible
     - ansible-role-jenkins-slave
   vars:
     apt_repo_to_add:
