@@ -1,3 +1,11 @@
+## Release 1.2.2
+
+* 922443b bugfix: ignore extra roles' yaml files
+* e6ec3d0 bugfix: remove check_mode
+* a0398fc bugfix: update supported platform versions
+* 4edba9f bugfix: QA
+* b78a28e bugfix: QA
+
 ## Release 1.2.1
 
 * 74a83b0 [bugfix] Update rubocop to the latest (#1)
