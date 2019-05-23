@@ -8,5 +8,6 @@ rules:
 ignore: |
   # yamllint does not understand erb template
   .kitchen.local.yml
+  extra_roles/
   # yamllint complains blank line in hear-doc
   tests/serverspec/jenkins_slave_master_ssh_private_key.yml
