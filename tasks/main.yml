@@ -17,16 +17,16 @@
   shell: echo '{{ jenkins_slave_master_ssh_private_key }}' | openssl rsa -pubout -passin pass:{{ jenkins_slave_master_ssh_passphrase }} | ssh-keygen -i -m pkcs8 -f /dev/stdin
   register: register_jenkins_slave_ssh_authorized_key
   changed_when: False
-  always_run: yes
+  check_mode: no
   no_log: "{{ not jenkins_slave_enable_debug }}"
   when:
-   - jenkins_slave_master_ssh_private_key | length > 0
+    - jenkins_slave_master_ssh_private_key | length > 0
 
 - name: Set jenkins_slave_authorized_keys
   set_fact:
     jenkins_slave_authorized_keys: "{{ register_jenkins_slave_ssh_authorized_key.stdout }} jenkins_master"
   when:
-   - jenkins_slave_master_ssh_private_key | length > 0
+    - jenkins_slave_master_ssh_private_key | length > 0
 
 - name: Create .ssh/authorized_keys
   template:

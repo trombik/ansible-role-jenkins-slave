@@ -10,7 +10,7 @@
         state: present
       when:
         - "ansible_distribution == 'CentOS'"
-        - "ansible_distribution_version | version_compare('7.4', '<')"
+        - "ansible_distribution_version is version_compare('7.4', '<')"
   roles:
     - trombik.redhat_repo
     - trombik.apt_repo
